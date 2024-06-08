@@ -19,10 +19,13 @@ export default async function Home() {
   return (
     <main>
       {movies && (
-        <div className='grid grid-cols-4'>
-          {movies.map((movie) => (
-            <Movie {...movie} key={movie.id} />
-          ))}
+        <div>
+          <h1 className='md:text-xl mb-4'>오늘 글로벌 TOP 20 영화</h1>
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-2'>
+            {movies.map((movie) => (
+              <Movie {...movie} key={movie.id} />
+            ))}
+          </div>
         </div>
       )}
     </main>

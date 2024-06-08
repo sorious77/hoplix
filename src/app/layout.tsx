@@ -17,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en'>
-      <body>
+    <html>
+      <body className='px-5 md:px-10'>
         <Navbar />
         {children}
       </body>
