@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
 import axios from 'axios'
 import { BASE_URL } from '@/utils/url'
-import Link from 'next/link'
+import Movie from '@/components/Movie'
 
 export const metadata: Metadata = {
   title: 'Home',
 }
 
 const getMovies = async () => {
-  const { data }: { data: Movie[] } = await axios.get(`${BASE_URL}/movies`)
+  const { data: movies }: { data: IMovie[] } = await axios.get(`${BASE_URL}`)
 
-  return data
+  return movies
 }
 
 export default async function Home() {
@@ -18,15 +18,13 @@ export default async function Home() {
 
   return (
     <main>
-      Home~
-      <div>
-        {movies &&
-          movies.map((movie) => (
-            <div key={movie.id}>
-              <Link href={`/movie/${movie.id}`}>{movie.title}</Link>
-            </div>
+      {movies && (
+        <div className='grid grid-cols-4'>
+          {movies.map((movie) => (
+            <Movie {...movie} key={movie.id} />
           ))}
-      </div>
+        </div>
+      )}
     </main>
   )
 }
