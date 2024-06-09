@@ -5,8 +5,8 @@ import Navbar from '@/components/navbar'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Movie App',
-    default: 'Movie App',
+    template: '%s | Hoplix',
+    default: 'Hoplix',
   },
   description: 'Developed by sorious77',
 }
