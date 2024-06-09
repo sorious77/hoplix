@@ -58,3 +58,13 @@ interface ProductionCompany {
 interface ProductionCountry {
   name: string
 }
+
+interface ICredit {
+  adult: boolean
+  gender: number
+  id: number
+  name: string
+  original_name: string
+  profile_path: string
+  character: string
+}
