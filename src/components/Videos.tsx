@@ -12,7 +12,7 @@ const getMovieVideos = async (id: string) => {
   return videos
 }
 
-export default async function MovieVideos({ id }: { id: string }) {
+export default async function Videos({ id }: { id: string }) {
   const videos = await getMovieVideos(id)
 
   return (
