@@ -31,7 +31,7 @@ export default async function Providers({ id }: { id: string }) {
           {keys.map(
             (key) =>
               provider[key] && (
-                <div className='mt-2'>
+                <div className='mt-2' key={key}>
                   <h1 className='uppercase'>{key}</h1>
                   <div className='grid grid-cols-4'>
                     {provider[key]?.map((item) => (
