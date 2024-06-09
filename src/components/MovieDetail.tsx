@@ -2,9 +2,10 @@ import axios from 'axios'
 import { BASE_URL } from '@/utils/url'
 import Link from 'next/link'
 import { Suspense } from 'react'
-import MovieCredits from '@/components/MovieCredits'
+import Credits from '@/components/Credits'
 import MovieMenu from '@/components/MovieMenu'
-import MovieVideos from '@/components/MovieVideos'
+import Videos from '@/components/Videos'
+import Providers from '@/components/Providers'
 
 const getMovie = async (id: string) => {
   const { data: movie }: { data: IMovieDetail } = await axios.get(
@@ -52,12 +53,14 @@ export default async function MovieDetail({ id }: { id: string }) {
         </p>
         <MovieMenu labels={['credits', 'videos', 'providers', 'similar']}>
           <Suspense fallback={<div>Loading Movie Credits..</div>}>
-            <MovieCredits id={id} />
+            <Credits id={id} />
           </Suspense>
           <Suspense fallback={<div>Loading Movie Videos...</div>}>
-            <MovieVideos id={id} />
+            <Videos id={id} />
           </Suspense>
-          <div>providers</div>
+          <Suspense fallback={<div>Loading Movie Provider...</div>}>
+            <Providers id={id} />
+          </Suspense>
           <div>similar</div>
         </MovieMenu>
       </div>

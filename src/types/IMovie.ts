@@ -65,6 +65,6 @@ interface ICredit {
   id: number
   name: string
   original_name: string
-  profile_path: string
+  profile_path: string | null
   character: string
 }
