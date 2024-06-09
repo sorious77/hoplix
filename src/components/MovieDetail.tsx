@@ -6,6 +6,7 @@ import Credits from '@/components/Credits'
 import MovieMenu from '@/components/MovieMenu'
 import Videos from '@/components/Videos'
 import Providers from '@/components/Providers'
+import Similars from '@/components/Similars'
 
 const getMovie = async (id: string) => {
   const { data: movie }: { data: IMovieDetail } = await axios.get(
@@ -61,7 +62,9 @@ export default async function MovieDetail({ id }: { id: string }) {
           <Suspense fallback={<div>Loading Movie Provider...</div>}>
             <Providers id={id} />
           </Suspense>
-          <div>similar</div>
+          <Suspense fallback={<div>Loading Movie Similars...</div>}>
+            <Similars id={id} />
+          </Suspense>
         </MovieMenu>
       </div>
     </div>
